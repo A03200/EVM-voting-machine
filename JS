@@ -1,0 +1,22 @@
+let partyimg=document.querySelectorAll(".party-img");
+let parties=document.querySelector(".parties");
+let votecount= document.querySelectorAll(".vote-count");
+let selectedImg=document.querySelector(".selected-img");
+let selected=document.querySelector(".selected");
+const candidate=[{imgSrc:"BJP.jpeg"},{imgSrc:"CONG.jpeg"},{imgSrc:"TMC.jpeg"},{imgSrc:"CPIM.jpeg"},
+{imgSrc:"AAP.jpeg"}];
+let voted=0;
+candidate.forEach(function (candidate,index) {
+    partyimg[index].addEventListener("click", () => {
+        if (voted == 0) {
+            votecount[index].innerHTML = 1;
+            voted = 1;
+            selectedImg.src = candidate.imgSrc;
+            setTimeout(() => {
+                selected.style.display = "block";
+                parties.style.display = "none";
+            }, 2000);
+        }
+    });
+
+});
